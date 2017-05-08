@@ -35,15 +35,16 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
+  # factory_girl_rails provides Rails integration for factory_girl.
+  gem 'factory_girl_rails'
 end
-group :test do
 
+group :test do
   # Collection of testing matchers extracted from Shoulda
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
   gem 'database_cleaner'
-  # factory_girl_rails provides Rails integration for factory_girl.
-  gem 'factory_girl_rails'
+
 end
 
 group :development do
