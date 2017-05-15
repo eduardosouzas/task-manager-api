@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  # before_action :authetentication
   respond_to :json
   def show
     @user = User.find(params[:id])
