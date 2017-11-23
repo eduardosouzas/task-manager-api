@@ -16,7 +16,6 @@ RSpec.describe Authenticable do
 
     it 'returns the user from the autorization header' do
       expect(app_controller.current_user).to eq(user)
-
     end
   end
 
@@ -39,6 +38,22 @@ RSpec.describe Authenticable do
       it 'returns the json data for the errors' do
         expect(json_body).to have_key(:errors)
       end
+    end
+  end
+
+  describe '#user_logged_in?' do
+    context 'when there is a user logged in' do
+      before do
+        user = create(:user)
+        allow(app_controller).to receive(:current_user).and_return(user)
+      end
+      it { expect(app_controller.user_logged_in?).to be true}
+    end
+    context 'when there is no user logged in' do
+      before do
+        allow(app_controller).to receive(:current_user).and_return(nil)
+      end
+      it { expect(app_controller.user_logged_in?).to be false}
     end
   end
 end

@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   # before_action :authetentication
-  before_action :authenticate_with_token!
+  before_action :authenticate_with_token!, only: [:updade, :destroy]
   respond_to :json
   def show
     @user = User.find(params[:id])
