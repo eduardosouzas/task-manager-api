@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
   let!(:user) { create(:user) }
-  let!(:user_id) { user.id }
   let!(:auth_data) { user.create_new_auth_token }
   let(:headers) do {
     'Accept' => 'application/vnd.taskmanager.v2',
@@ -23,7 +22,7 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'returns the user id' do
-        expect(json_body[:data][:id].to_i).to eq(user_id)
+        expect(json_body[:data][:id].to_i).to eq(user.id)
       end
 
       it 'returns status code 200' do
