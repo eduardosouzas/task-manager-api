@@ -22,6 +22,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 
 gem 'omniauth'
 
+gem 'rails-i18n', '~> 5.0.0'
 gem 'devise_token_auth'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
